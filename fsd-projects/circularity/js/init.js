@@ -29,15 +29,23 @@ var init = function (window) {
         physikz.addRandomVelocity(circle, canvas, 5, 5);
         view.addChild(circle);
         circles.push(circle);
+        
     }    
-
+Gamification.init({
+        canvas: canvas,
+        view: view,
+        draw: draw,
+        physikz: physikz,
+        circles: circles,
+        game: game
+      });
 
         // TODO 3 : Call the drawCircle() function
    
 
         // TODO 7 : Use a loop to create multiple circles
-    for (var i = 0; i < 1000; i++){
-        drawCircle(i);
+    for (var i = 0; i < 50; i++){
+        drawCircle();
     }
 
 
@@ -58,14 +66,20 @@ var init = function (window) {
             // TODO 5 : Call game.checkCirclePosition() on your circles
           
             // TODO 8 / TODO 9 : Iterate over the array
-           for (var i = 0; i < 1000; i++){
+           for (var i = 0; i < 50; i++){
                 physikz.updatePosition(circles[i]);
+               
+
+
             }
 
-           for (var i = 0; i < 1000; i++){
+           for (var i = 0; i < 50; i++){
                 game.checkCirclePosition(circles[i]);
+                
+
+
             }
-            
+            Gamification.update();
         }
     
         /* 
